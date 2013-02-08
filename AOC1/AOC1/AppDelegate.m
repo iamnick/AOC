@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  AOC1
 //
-//  Created by Nick Stelzer on 2/7/13.
+//  Created by Nick Stelzer on 2/7/13 for AOC 1302
 //  Copyright (c) 2013 Nick Stelzer. All rights reserved.
 //
 
@@ -23,20 +23,22 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    // Casting float to an int, outputting both
+    // Variables used in these small examples
     float frozenLemonadePrice = 2.25f;
+    float cash = 20.50f;
+    int lemonadesWeHave = 0;
+    int varieties = 3;
+    int people = 4;
+    BOOL areWeThirsty = YES;
     
+    // Casting float to an int, outputting both
     NSLog(@"A frozen lemonade costs about $%d, or $%.2f to be exact.", (int)frozenLemonadePrice, frozenLemonadePrice);
     
     // AND, OR comparison using float, int, and BOOL data types
-    float cash = 1.50f;
-    int drinksWeHave = 0;
-    BOOL areWeThirsty = YES;
-    
-    if ((areWeThirsty == YES) && (((drinksWeHave == 0) && (cash >= frozenLemonadePrice)) || (drinksWeHave > 0))) {
-    	NSLog(@"We are thirsty, and have drinks or enough money to buy some.");
+    if ((areWeThirsty == YES) && (((lemonadesWeHave == 0) && (cash >= frozenLemonadePrice)) || (lemonadesWeHave > 0))) {
+    	NSLog(@"We are thirsty, and have frozen lemonade already or enough money to buy some.");
     } else {
-    	NSLog(@"We might not be thirsty, or we are but don't have any drinks or money.");
+    	NSLog(@"We might not be thirsty, or we are but don't have any frozen lemonade already or enough money to buy any.");
     }
     
     // if, else if, else conditional
@@ -48,6 +50,25 @@
     	NSLog(@"We don't have enough money to buy any frozen lemonades.");
     }
     
+    // single loop
+    for (int i=0; i < lemonadesWeHave; i++) {
+    	NSLog(@"We have a frozen lemonade.");
+    }
+    
+    // nested loop
+    for (int j=0; j < people; j++) {
+    	NSLog(@"Lets buy 1 of each type of frozen lemonade for person number %d", j);
+        for (int k=0; k < varieties; k++) {
+        	NSLog(@"We bought variety %d for person number %d", k, j);
+        }
+    }
+    
+    // while loop that increments an int variable
+    while (cash > frozenLemonadePrice) {
+    	cash = cash - frozenLemonadePrice;
+    	lemonadesWeHave++;
+        NSLog(@"We bought a frozen lemonade, we now have %d of them.", lemonadesWeHave);
+    }
     
     
     
