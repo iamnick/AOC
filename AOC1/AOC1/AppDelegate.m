@@ -25,7 +25,31 @@
     
     // Casting float to an int, outputting both
     float frozenLemonadePrice = 2.25f;
+    
     NSLog(@"A frozen lemonade costs about $%d, or $%.2f to be exact.", (int)frozenLemonadePrice, frozenLemonadePrice);
+    
+    // AND, OR comparison using float, int, and BOOL data types
+    float cash = 1.50f;
+    int drinksWeHave = 0;
+    BOOL areWeThirsty = YES;
+    
+    if ((areWeThirsty == YES) && (((drinksWeHave == 0) && (cash >= frozenLemonadePrice)) || (drinksWeHave > 0))) {
+    	NSLog(@"We are thirsty, and have drinks or enough money to buy some.");
+    } else {
+    	NSLog(@"We might not be thirsty, or we are but don't have any drinks or money.");
+    }
+    
+    // if, else if, else conditional
+	if (cash >= (frozenLemonadePrice * 2)) {
+    	NSLog(@"We have enough money to buy multiple frozen lemonades.");
+    } else if (cash >= frozenLemonadePrice) {
+    	NSLog(@"We have enough money for 1 frozen lemonade.");
+    } else {
+    	NSLog(@"We don't have enough money to buy any frozen lemonades.");
+    }
+    
+    
+    
     
     return YES;
 }
