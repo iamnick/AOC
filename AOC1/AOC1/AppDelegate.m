@@ -10,12 +10,23 @@
 
 @implementation AppDelegate
 
+- (void)dealloc
+{
+    [_window release];
+    [super dealloc];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    // Casting float to an int, outputting both
+    float frozenLemonadePrice = 2.25f;
+    NSLog(@"A frozen lemonade costs about $%d, or $%.2f to be exact.", (int)frozenLemonadePrice, frozenLemonadePrice);
+    
     return YES;
 }
 
