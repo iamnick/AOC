@@ -27,20 +27,6 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    // create an NSString that contains an int and float using string formatting
-    int tires = 4;
-    float speed = 100.3f;
-    NSString *firstString = [[NSString alloc] initWithFormat:@"A car has %d tires and can travel at %.1f mph", tires, speed];
-    
-    // create and format another NSString that contains a float and another string
-    
-    NSString *secondString = [[NSString alloc] initWithFormat:@"%@. %.1f is really too fast of a speed to be driving at.", firstString, speed];
-    
-    // print both to console
-    NSLog(@"%@", firstString);
-    NSLog(@"%@", secondString);
-
-    
     return YES;
 }
 
