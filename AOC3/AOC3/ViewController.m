@@ -17,8 +17,10 @@
 - (void)viewDidLoad
 {
 	// Add Function
+    [self addInts:4 b:5];
     
     // Compare Function (BOOL)
+    [self compareInts:3 b:2];
     
     // Append Function
     
@@ -29,14 +31,24 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewWillAppear:(BOOL)animated
+// Add Function
+- (int)addInts:(int)a b:(int)b
 {
-	[super viewWillAppear:animated];
+	NSLog(@"%d+%d=%d", a ,b, (a+b));
+    return (a+b);
 }
 
-- (void)viewDidAppear:(BOOL)animated
+// Compare Function
+- (BOOL)compareInts:(int)a b:(int)b
 {
-	[super viewDidAppear:animated];
+	BOOL same;
+	if (a == b) {
+    	same = YES;
+    } else {
+    	same = NO;
+    }
+	NSLog(@"%d and %d, %d", a, b, same);
+    return same;
 }
 
 - (void)didReceiveMemoryWarning

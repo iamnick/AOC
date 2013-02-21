@@ -27,8 +27,6 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    [self.viewController printDebugInfo:@"hello from the appdelegate.m file" numLines:5];
-    
     return YES;
 }
 

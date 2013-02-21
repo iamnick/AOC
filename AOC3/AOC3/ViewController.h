@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
 
--(void)printDebugInfo:(NSString*)debugString numLines:(NSInteger)numLines;
+}
 
 @end
