@@ -28,19 +28,15 @@
     [self displayAlertWithString:stringResult];
     
     // Call Compare & Display Alert Function (Step 9)
-    int intA = 4;
+    int intA = 5;
     int intB = 5;
 	BOOL areTheyTheSame = [self compareInts:intA b:intB];
-    NSString *compareResult = [[NSString alloc] init];
     if (areTheyTheSame == 1) {
-    	compareResult = @"%d and %d are the same number.", intA, intB;
+    	NSString *compareResult = [[NSString alloc] initWithFormat:@"%d and %d are the same number.", intA, intB];
+    	[self displayAlertWithString:compareResult];
     } else {
-    	compareResult = @"%d and %d are not the same number.", intA, intB;
+    	[self displayAlertWithString:@"The numbers are not the same"];
     }
-    [self displayAlertWithString:compareResult];
-
-    
-    
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
