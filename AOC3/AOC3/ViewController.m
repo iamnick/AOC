@@ -16,36 +16,44 @@
 
 - (void)viewDidLoad
 {
-	// Add Function
-    [self addInts:4 b:5];
-    
-    // Compare Function (BOOL)
-    [self compareInts:3 b:2];
-    
-    // Append Function
-    //[self appendStrings:@"string1" secondString:@"string2"];
-    NSString *appendedStrings = [[NSString alloc] initWithFormat:@"%@", [self appendStrings:@"string1" secondString:@"string2"]];
-    NSLog(@"Appended Strings: %@", appendedStrings);
+    // Call Append Function (Step 4)
+    NSString *appendedStrings = [[NSString alloc] initWithString:[self appendStrings:@"string1" secondString:@"string2"]];
 	UIAlertView *stringAlert = [[UIAlertView alloc] initWithTitle:@"Appended Strings" message:appendedStrings delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    if (stringAlert != nil) {
-    	[stringAlert show];
+    [stringAlert show];
+    
+    
+    // Call Add & Display Alert Function (Step 6, 7, 8)
+    NSNumber *result = [NSNumber numberWithInt:[self addInts:4 b:5]];
+    NSString *stringResult = [[NSString alloc] initWithFormat:@"The number is %@", [result stringValue]];
+    [self displayAlertWithString:stringResult];
+    
+    // Call Compare & Display Alert Function (Step 9)
+    int intA = 4;
+    int intB = 5;
+	BOOL areTheyTheSame = [self compareInts:intA b:intB];
+    NSString *compareResult = [[NSString alloc] init];
+    if (areTheyTheSame == 1) {
+    	compareResult = @"%d and %d are the same number.", intA, intB;
+    } else {
+    	compareResult = @"%d and %d are not the same number.", intA, intB;
     }
+    [self displayAlertWithString:compareResult];
+
     
-    // Display Alert Function
     
-    // 
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-// Add Function
-- (int)addInts:(int)a b:(int)b
+// Add Function (Step 1)
+- (NSInteger)addInts:(NSInteger)a b:(NSInteger)b
 {
 	NSLog(@"%d+%d=%d", a ,b, (a+b));
     return (a+b);
 }
 
-// Compare Function
+// Compare Function (Step 2)
 - (BOOL)compareInts:(int)a b:(int)b
 {
 	BOOL same;
@@ -58,7 +66,7 @@
     return same;
 }
 
-// Append Function
+// Append Function (Step 3)
 - (NSString*)appendStrings:(NSString*)firstString secondString:(NSString*)secondString
 {
 	
@@ -70,6 +78,13 @@
     NSLog(@"%@", newString);
     
     return newString;
+}
+
+// Display Alert Function (Step 5)
+- (void)displayAlertWithString:(NSString*)displayString
+{
+	UIAlertView *displayAlert = [[UIAlertView alloc] initWithTitle:@"displayAlertWithString" message:displayString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[displayAlert show];
 }
 
 - (void)didReceiveMemoryWarning
