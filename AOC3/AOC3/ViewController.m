@@ -23,6 +23,13 @@
     [self compareInts:3 b:2];
     
     // Append Function
+    //[self appendStrings:@"string1" secondString:@"string2"];
+    NSString *appendedStrings = [[NSString alloc] initWithFormat:@"%@", [self appendStrings:@"string1" secondString:@"string2"]];
+    NSLog(@"Appended Strings: %@", appendedStrings);
+	UIAlertView *stringAlert = [[UIAlertView alloc] initWithTitle:@"Appended Strings" message:appendedStrings delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if (stringAlert != nil) {
+    	[stringAlert show];
+    }
     
     // Display Alert Function
     
@@ -49,6 +56,20 @@
     }
 	NSLog(@"%d and %d, %d", a, b, same);
     return same;
+}
+
+// Append Function
+- (NSString*)appendStrings:(NSString*)firstString secondString:(NSString*)secondString
+{
+	
+	NSMutableString *newString = [[NSMutableString alloc] init];
+    [newString appendString:[NSString stringWithFormat:@"%@%@", firstString, secondString]];
+	/*
+    NSString *newString = [[NSString alloc] initWithFormat:@"%@%@", firstString, secondString];
+    */
+    NSLog(@"%@", newString);
+    
+    return newString;
 }
 
 - (void)didReceiveMemoryWarning
