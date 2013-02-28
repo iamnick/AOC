@@ -12,5 +12,9 @@
 {
 	UITextField *usernameTextField;
     UILabel *loginMsgLabel;
+    UILabel *infoLabel;
 }
+
+- (void)onClick:(UIButton*)button;
+
 @end

@@ -20,11 +20,15 @@
 
 - (void)viewDidLoad
 {
+	self.view.backgroundColor = [UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1];
+
     // Username Label
     UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 15.0f, 90.0f, 20.0f)];
     if (usernameLabel != nil) {
     	usernameLabel.text = @"Username:";
         usernameLabel.textAlignment = NSTextAlignmentRight;
+        usernameLabel.textColor = [UIColor whiteColor];
+        usernameLabel.backgroundColor = [UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1];
         [self.view addSubview:usernameLabel];
     }
     
@@ -50,6 +54,8 @@
     if (loginMsgLabel != nil) {
     	loginMsgLabel.text = @"Please Enter Username";
         loginMsgLabel.textAlignment = NSTextAlignmentCenter;
+        loginMsgLabel.textColor = [UIColor whiteColor];
+        loginMsgLabel.backgroundColor = [UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1];
         [self.view addSubview:loginMsgLabel];
     }
     
@@ -73,8 +79,12 @@
     }
     
     // Info Label
-    UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 330.0f, 320.0f, 60.0f)];
+    infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 350.0f, 320.0f, 60.0f)];
     if (infoLabel != nil) {
+    	infoLabel.textAlignment = NSTextAlignmentCenter;
+    	infoLabel.numberOfLines = 2;
+        infoLabel.textColor = [UIColor whiteColor];
+        infoLabel.backgroundColor = [UIColor colorWithRed:0.231 green:0.349 blue:0.596 alpha:1];
     	[self.view addSubview:infoLabel];
     }
 
@@ -92,7 +102,7 @@
         	NSString *loginMsg = [[NSString alloc] initWithFormat:@"User: %@ has been logged in", username];
         	loginMsgLabel.text = loginMsg;
         }
-    } else if (button.tag = DATE_BUTTON) {
+    } else if (button.tag == DATE_BUTTON) {
     	NSDate *currentDate = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         if (dateFormatter != nil) {
@@ -104,13 +114,9 @@
         if (dateAlert != nil) {
         	[dateAlert show];
         }
-    } else if (button.tag = INFO_BUTTON) {
-    	
+    } else if (button.tag == INFO_BUTTON) {
+    	infoLabel.text = @"This application was created by Nick Stelzer";
     }
-	/*UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Popup" message:@"onClick function" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    if (alertView != nil) {
-    	[alertView show];
-    }*/
 }
 
 - (void)didReceiveMemoryWarning
